@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta property="og:title" content="Randil Kaveeshwara">
-<meta property="og:description" content="Full-stack developer and HND IT student at the University of Moratuwa.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B82F6'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3ERK%3C/text%3E%3C/svg%3E">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Randil Kaveeshwara</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Randil Kaveeshwara, full-stack developer and HND IT student at the University of Moratuwa. Projects, skills and certificates.">
@@ -13,8 +6,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
-
 /* Layout: one centered 1080px column; terminal hero, then sections divided by quiet hairlines. Dark-first.
    Palette: navy grounds with one trust-blue family (primary, deep, sky); a single warm amber marks "available now". */
 :root{
@@ -228,8 +219,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--fg)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-</head>
-<body>
+
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="nav">
@@ -260,11 +250,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--fg)}
         <div class="ctas">
           <a class="btn primary" href="#projects">View Projects
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn" id="resume" href="Randil_Kaveeshwara_CV.pdf" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download Resume</a>
+          <button class="btn" id="resume" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download Resume</button>
           <a class="btn" href="#contact">Contact Me</a>
         </div>
-        
+        <p class="status" id="resume-status" role="status"></p>
       </div>
       <div class="term" aria-label="Terminal introduction">
         <div class="term-bar"><i></i><i></i><i></i><span>~/randil — zsh</span></div>
@@ -292,7 +282,7 @@ Randil Kaveeshwara · Bandarawela, Sri Lanka
         <p class="eyebrow">About</p>
         <h2>A student who builds real things</h2>
         <p>I'm a software engineering student at the Institute of Technology, University of Moratuwa. I enjoy turning real-world problems into working software, from a coastal-cleanup reporting system to a website service for Sri Lankan small businesses.</p>
-        <p>I work across the stack: React and TypeScript on the frontend, Java and Spring Boot on the backend, and MySQL underneath. I use AI tools like GitHub Copilot as part of my workflow, and I keep learning through certifications from Google, Postman and HackerRank.</p>
+        <p>I work across the stack: React and TypeScript on the frontend, Java and Spring Boot on the backend, and MySQL underneath. I use AI tools like Claude and ChatGPT as part of my workflow, and I keep learning through certifications from Google, Postman and HackerRank.</p>
         <div class="facts">
           <span class="chip">Backend development</span><span class="chip">Frontend development</span><span class="chip">Software architecture</span><span class="chip">AI-assisted development</span><span class="chip">English · Sinhala</span>
         </div>
@@ -329,7 +319,7 @@ Randil Kaveeshwara · Bandarawela, Sri Lanka
         <div class="skill">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 18l.9-5.4L4.2 8.7l5.4-.8z"/></svg>Practices</h3>
           <p>How I approach the work</p>
-          <div class="tags"><span class="tag">OOP</span><span class="tag">API testing</span><span class="tag">Multi-tier architecture</span><span class="tag">AI-assisted dev</span><span class="tag">Problem solving</span></div>
+          <div class="tags"><span class="tag">Agile / Scrum</span><span class="tag">Git branching &amp; PRs</span><span class="tag">CI/CD</span><span class="tag">OOP</span><span class="tag">API testing</span><span class="tag">Multi-tier architecture</span><span class="tag">AI-assisted dev</span></div>
         </div>
       </div>
     </div>
@@ -609,8 +599,30 @@ Randil Kaveeshwara · Bandarawela, Sri Lanka
   document.getElementById('viewer-close').addEventListener('click',()=>viewer.close());
   viewer.addEventListener('click',e=>{ if(e.target===viewer) viewer.close(); });
 
+  // resume download
+  const resumeBtn=document.getElementById('resume'), resumeStatus=document.getElementById('resume-status');
+  resumeBtn.hidden=true;
+  let downloads=null;
+  if(window.claude&&typeof window.claude.use==='function'){
+    window.claude.use('downloads').then(d=>{downloads=d; if(d) resumeBtn.hidden=false;}).catch(()=>{});
+  }
+  resumeBtn.addEventListener('click',async()=>{
+    if(!downloads) return;
+    resumeBtn.disabled=true; resumeStatus.textContent='Preparing the PDF…';
+    try{
+      const res=await fetch('Randil_Kaveeshwara_CV.pdf'); if(!res.ok) throw {code:'missing'};
+      const blob=await res.blob();
+      await downloads.save({filename:'Randil_Kaveeshwara_CV.pdf',data:blob});
+      resumeStatus.textContent='Resume saved.';
+    }catch(err){
+      const c=err&&err.code;
+      resumeStatus.textContent = c==='declined' ? 'Download cancelled.' :
+        c==='rate_limited' ? 'A download prompt is already open. Try again in a moment.' :
+        'The resume could not be downloaded here. Contact me by email for a copy.';
+      if(c==='unavailable'||c==='not_granted'||c==='capability_disabled'||c==='capability_removed') resumeBtn.hidden=true;
+    }finally{resumeBtn.disabled=false;}
+  });
 })();
 </script>
 
-</body>
-</html>
+</body></html>
