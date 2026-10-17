@@ -250,8 +250,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--fg)}
         <div class="ctas">
           <a class="btn primary" href="#projects">View Projects
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <button class="btn" id="resume" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download Resume</button>
+          <a class="btn" id="resume" href="Randil_Kaveeshwara_CV.pdf" download="Randil_Kaveeshwara_CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download Resume</a>
           <a class="btn" href="#contact">Contact Me</a>
         </div>
         <p class="status" id="resume-status" role="status"></p>
@@ -599,28 +599,26 @@ Randil Kaveeshwara · Bandarawela, Sri Lanka
   document.getElementById('viewer-close').addEventListener('click',()=>viewer.close());
   viewer.addEventListener('click',e=>{ if(e.target===viewer) viewer.close(); });
 
-  // resume download
+  // resume download: a normal file link everywhere; inside a Claude viewer, use its download prompt instead
   const resumeBtn=document.getElementById('resume'), resumeStatus=document.getElementById('resume-status');
-  resumeBtn.hidden=true;
   let downloads=null;
   if(window.claude&&typeof window.claude.use==='function'){
-    window.claude.use('downloads').then(d=>{downloads=d; if(d) resumeBtn.hidden=false;}).catch(()=>{});
+    window.claude.use('downloads').then(d=>{downloads=d;}).catch(()=>{});
   }
-  resumeBtn.addEventListener('click',async()=>{
-    if(!downloads) return;
-    resumeBtn.disabled=true; resumeStatus.textContent='Preparing the PDF…';
+  resumeBtn.addEventListener('click',async(e)=>{
+    if(!downloads) return; // plain link handles it
+    e.preventDefault();
+    resumeStatus.textContent='Preparing the PDF…';
     try{
       const res=await fetch('Randil_Kaveeshwara_CV.pdf'); if(!res.ok) throw {code:'missing'};
-      const blob=await res.blob();
-      await downloads.save({filename:'Randil_Kaveeshwara_CV.pdf',data:blob});
+      await downloads.save({filename:'Randil_Kaveeshwara_CV.pdf',data:await res.blob()});
       resumeStatus.textContent='Resume saved.';
     }catch(err){
       const c=err&&err.code;
       resumeStatus.textContent = c==='declined' ? 'Download cancelled.' :
         c==='rate_limited' ? 'A download prompt is already open. Try again in a moment.' :
         'The resume could not be downloaded here. Contact me by email for a copy.';
-      if(c==='unavailable'||c==='not_granted'||c==='capability_disabled'||c==='capability_removed') resumeBtn.hidden=true;
-    }finally{resumeBtn.disabled=false;}
+    }
   });
 })();
 </script>
